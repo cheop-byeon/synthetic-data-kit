@@ -1,0 +1,43 @@
+# Python environments
+venv/
+.venv/
+.venv-ci/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Environment files
+.env
+.env.example
+.DS_Store
+
+# Data directories (output)
+data/generated/
+test/
+test_verbose/
+
+# Generated files
+example_output/
+*.pdf
+
+# Shell scripts (batch processing)
+tog*.sh
+running_*.sh
+
+# Process scripts (one-off utilities)
+process.rfc*.py
+transfer.py
+
+# Test/RFC data files
+rfc*.jsonl
+rfc*.tsv
+rfc*.csv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
