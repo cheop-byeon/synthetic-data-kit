@@ -5,6 +5,14 @@ We keep the core source code and add minor adjustments such as target-file check
 
 For full functionality (text, video, multimodal, task-specific reasoning, etc.), refer to the upstream repository. Below we document only the parts used for our runs.
 
+## Generated Synthetic Data
+
+This toolkit was used to generate **RFCAlign**, a synthetic dataset that aligns RFC (Request for Comments) design decisions with their supporting rationale from mailing-list discussions.
+
+📦 **Dataset**: [jiebi/RFCAlign](https://huggingface.co/datasets/jiebi/RFCAlign)
+
+The dataset contains raitonale-decision pairs, generated using the workflows described in this repository.
+
 ## CLI overview
 
 Core commands:
@@ -171,4 +179,4 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Acknowledgements
 
-Thanks to the contributors of [meta/synthetic_data_kit](https://github.com/meta-llama/synthetic-data-kit).
+Thanks to the contributors of [meta-llama/synthetic_data_kit](https://github.com/meta-llama/synthetic-data-kit).
