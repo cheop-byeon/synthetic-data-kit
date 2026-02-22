@@ -1,6 +1,7 @@
 # Synthetic Data Kit
 
-This repository is derived from [meta/synthetic_data_kit](https://github.com/meta-llama/synthetic-data-kit). We keep the core source code and add batch-generation scripts, target-file checks (skip if output exists), and configs used for our synthetic data generation runs. This repo is provided to reproduce our synthetic textual data; it is not an upstream contribution.
+This repository is derived from [meta-llama/synthetic_data_kit](https://github.com/meta-llama/synthetic-data-kit).
+We keep the core source code and add minor adjustments such as target-file checks (skip if output exists) to avoid repeated generation when batch jobs are resumed or time out. We also include the configs used for our synthetic data generation runs. This repo is provided to reproduce our synthetic textual data; it is not an upstream contribution.
 
 For full functionality (text, video, multimodal, task-specific reasoning, etc.), refer to the upstream repository. Below we document only the parts used for our runs.
 
@@ -26,9 +27,14 @@ pip install -e .
 
 ## Commands we used
 
-`synthetic-data-kit --help`
+### 1. Lookup
+- Check usage
 
-### 1. Tool setup
+```bash
+synthetic-data-kit --help
+```
+
+### 2. Tool setup
 - Check if your backend is running
 
 ```bash
@@ -41,11 +47,11 @@ synthetic-data-kit system-check
 mkdir -p data/{input,parsed,generated}
 ```
 
-### 2. Usage
+### 3. Usage
 
 The basic flow is: `ingest` → `create`. Parsed data is stored in Lance format by default.
 
-### 2.1 Batch directory processing
+### 3.1 Batch directory processing
 
 Process entire directories of files with a single command:
 
@@ -69,10 +75,23 @@ The toolkit uses YAML config files. Our configs are under [configs/](configs/):
 - [configs/llama_config_api.yaml](configs/llama_config_api.yaml)
 - [configs/qwen_config_vllm.yaml](configs/qwen_config_vllm.yaml)
 
+## Running scripts
 
+We recommend using `huggingface-cli` to download the open-source models locally, for example:
+
+```bash
+huggingface-cli download meta-llama/Llama-3.3-70B-Instruct --local-dir ./meta-llama/Llama-3.3-70B-Instruct
+
+sbatch running_llama_vllm.sh
+# OR
+sbatch running_llama_api.sh
+# OR
+sbatch running_qwen_vllm.sh
+
+```
 ## Document processing and chunking
 
-### How Chunking Works
+### How chunking works
 
 The toolkit automatically handles documents of any size:
 
@@ -147,7 +166,7 @@ Read the [License](LICENSE).
 
 ## Contributing
 
-Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md).
+Read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 ## Acknowledgements

@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name=avt_lla1
-#SBATCH --account=ec30
+#SBATCH --job-name=llama
+#SBATCH --account=12345678
 #SBATCH --time=00-05:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1

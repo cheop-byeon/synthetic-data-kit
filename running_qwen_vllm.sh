@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=llama
+#SBATCH --job-name=qwen
 #SBATCH --account=12345677
 #SBATCH --time=00-05:30:00
 #SBATCH --nodes=1
